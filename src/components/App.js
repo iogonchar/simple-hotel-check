@@ -1,7 +1,13 @@
-function App() {
-  return (
-    <div>
+import React from 'react';
 
+import Login from './login/Login';
+
+import './App.css';
+
+const App = () => {
+  return (
+    <div className="content">
+      <Login />
     </div>
   );
 }
