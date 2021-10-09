@@ -16,6 +16,10 @@
   margin-bottom: 7px;
 }
 
+.form__label--error {
+  color: #eb1717;
+}
+
 .form__input {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-weight: 300;
@@ -24,15 +28,26 @@
   margin-bottom: 7px;
   padding: 16px;
   background: #fff;
-  border: 1px solid #C9CACC;
+  border: 1px solid #c9cacc;
   border-radius: 4px;
 }
 
+.form__input:focus {
+  outline: none;
+}
+
+.form__input--error {
+  color: #eb1717;
+  border: 1px solid #eb1717;
+}
+
 .form__error {
+  width: 345px;
+  word-wrap: break-word;
   font-weight: 300;
   font-size: 12px;
   line-height: 1.16;
-  color: #eb1717
+  color: #eb1717;
 }
 
 .form__error--hidden {

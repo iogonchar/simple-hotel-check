@@ -1,11 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+
+import store from './store';
+import history from './history';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
+// import { authUser } from './store/actions/auth';
+
+// ПОПРОБОВАТЬ ПЕРЕНЕСТИ ДИСПАТЧ В АПП
+// ВЕРНУТЬ useDispatch, убрать mapState
+// if (localStorage.getItem('token')) {
+//   console.log('index')
+//   store.dispatch(authUser());
+// }
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <Router history={history}>
+        <App />
+      </Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
