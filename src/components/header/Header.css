@@ -1,0 +1,37 @@
+.header {
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid red;;
+}
+
+.header__title {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.16;
+  margin: 0;
+  color: #424242;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.logout-btn__text {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #41522e;
+  margin-right: 12px;
+}
+
+.logout-btn__image {
+  width: 24px;
+  height: 24px;
+  background: url('../../images/logout.svg');
+}
