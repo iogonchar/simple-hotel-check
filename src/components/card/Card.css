@@ -1,0 +1,112 @@
+.hotel-card {
+  display: flex;
+  align-items: center;
+  padding: 16px 16px 16px 0;
+  border-bottom: 2px solid rgba(135, 135, 135, 0.2);
+}
+
+.hotel-card--favourites {
+  padding: 16px 0;
+}
+
+.hotel-card__icon {
+  width: 64px;
+  height: 64px;
+  margin-right: 40px;
+  background: url('../../images/hotel.svg');
+}
+
+.hotel-card__info {
+  margin-right: auto;
+}
+
+.hotel-card__title {
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.29;
+  margin: 0;
+}
+
+.hotel-card__date {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.57;
+  color: #878787;
+}
+
+.hotel-card__stars {
+  width: 100px;
+  height: 17px;
+  margin-top: 5px;
+}
+
+.hotel-card__0stars {
+  background: url('../../images/hotel0stars.svg');
+}
+
+.hotel-card__1stars {
+  background: url('../../images/hotel1stars.svg');
+}
+
+.hotel-card__2stars {
+  background: url('../../images/hotel2stars.svg');
+}
+
+.hotel-card__3stars {
+  background: url('../../images/hotel3stars.svg');
+}
+
+.hotel-card__4stars {
+  background: url('../../images/hotel4stars.svg');
+}
+
+.hotel-card__5stars {
+  background: url('../../images/hotel5stars.svg');
+}
+
+.hotel-card__additional {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.hotel-card__add-to-favourites {
+  width: 21px;
+  height: 18px;
+  background: url('../../images/favourites-not-added.svg');
+  align-self: flex-end;
+  margin: 0 8px 22px 0;
+  border: none;
+  cursor: pointer;
+}
+
+.hotel-card__delete-from-favourites {
+  width: 21px;
+  height: 18px;
+  background: url('../../images/favourites-added.svg');
+  align-self: flex-end;
+  margin: 0 8px 22px 0;
+  border: none;
+  cursor: pointer;
+}
+
+.hotel-card__price {
+  min-width: 110px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.hotel-card__price-text {
+  font-weight: 300;
+  font-size: 11px;
+  margin-right: 8px;
+  color: #878787;
+}
+
+.hotel-card__price-value {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.05;
+  color: #424242;
+}
