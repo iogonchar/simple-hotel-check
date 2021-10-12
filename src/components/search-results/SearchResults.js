@@ -64,7 +64,7 @@ const SearchResults = () => {
   return ( 
     <div className="search-results">
       <div className="search-results__header">
-        <h2 className="search-results__title">Отели<img src={arrowImg} className="search-results__title-img" />{ store.hotels.hotelLocation }</h2>
+        <h2 className="search-results__title">Отели<img src={arrowImg} alt="-" className="search-results__title-img" />{ store.hotels.hotelLocation }</h2>
         <p className="search-results__date">{ `${checkInDateRu} ${checkInDate.getFullYear()}` }</p>
       </div>
       <span className="search-results__slider">Слайдер</span>
