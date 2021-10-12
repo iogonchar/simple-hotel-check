@@ -1,5 +1,5 @@
 .search-results {
-  min-width: 664px;
+  width: 664px;
   display: flex;
   flex-direction: column;
   padding: 48px 32px;
@@ -8,8 +8,48 @@
   border-radius: 16px;
 }
 
+.search-results__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 33px;
+}
+
 .search-results__title {
+  margin: 0;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.16;
   text-transform: capitalize;
+  color: #424242;
+}
+
+.search-results__title-img {
+  margin: 0 20px;
+}
+
+.search-results__date {
+  margin: 0;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.16;
+  color: #41522e;
+}
+
+.search-results__slider {
+  margin-bottom: 28px;
+}
+
+.search-results__favourites {
+  margin: 0 0 20px;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.29;
+  color: #424242;
+}
+
+.search-results__favourites-number {
+  font-weight: 500;
 }
 
 .hotel-cards {

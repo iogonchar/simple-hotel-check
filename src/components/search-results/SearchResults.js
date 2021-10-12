@@ -3,9 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { hotelsRequest } from '../../store/actions/hotels';
 import { addToFavourites, removeFromFavourites } from '../../store/actions/favourites';
+
 import Card from '../card/Card';
 
 import './SearchResults.css'
+import arrowImg from '../../images/arrow.svg';
 
 const SearchResults = () => {
   const store = useSelector((store) => store);
@@ -62,12 +64,15 @@ const SearchResults = () => {
   return ( 
     <div className="search-results">
       <div className="search-results__header">
-        <h2 className="search-results__title">{ `Отели - ${store.hotels.hotelLocation}` }</h2>
-        <p>{ `${checkInDateRu} ${checkInDate.getFullYear()}` }</p>
+        <h2 className="search-results__title">Отели<img src={arrowImg} className="search-results__title-img" />{ store.hotels.hotelLocation }</h2>
+        <p className="search-results__date">{ `${checkInDateRu} ${checkInDate.getFullYear()}` }</p>
       </div>
-      <p>Слайдер</p>
-      <hr />
-      <p>Добавлено в избранное: {store.favourites.favourites.length} {wordEnding(store.favourites.favourites.length, ['отель', 'отеля', 'отелей'])}</p>
+      <span className="search-results__slider">Слайдер</span>
+      <p className="search-results__favourites">
+        Добавлено в избранное: 
+        <span className="search-results__favourites-number"> {store.favourites.favourites.length} </span>
+        {wordEnding(store.favourites.favourites.length, ['отель', 'отеля', 'отелей'])}
+      </p>
       <ul className="hotel-cards">
       { 
         store.hotels.hotels.map((hotel) => (
