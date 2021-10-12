@@ -1,9 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { removeFromFavourites, sortFavourites } from '../../store/actions/favourites';
+import { removeFromFavourites } from '../../store/actions/favourites';
 
 import Card from '../card/Card';
+import Dropdown from '../dropdown/Dropdown';
 
 import './Favourites.css';
 
@@ -11,29 +12,32 @@ const Favourites = () => {
   const store = useSelector((store) => store);
   const dispatch = useDispatch();
 
+  const ratingOptions = [
+    { text: 'Рейтинг', value: 'RATING_HIGH' },
+    { text: 'Рейтинг', value: 'RATING_LOW' }
+  ]
+
+  const priceOptions = [
+    { text: 'Цена', value: 'PRICE_HIGH' },
+    { text: 'Цена', value: 'PRICE_LOW' }
+  ]
+
   const handleAddToFavourites = (hotel) => {
     dispatch(removeFromFavourites(hotel));
   }
-
-  const handleSelectChange = (e) => {
-    console.log(e.target.value);
-    dispatch(sortFavourites(e.target.value));
-  }
-
+  
   return (
     Boolean(store.favourites.favourites.length) && <div className="favourites">
       <h2 className="favourites__title">Избранное</h2>
       <div className="favourites__filters">
-        <select onChange={handleSelectChange}>
-          <option value="">-- Рейтинг --</option>
-          <option value="RATING_HIGH">По убыванию</option>
-          <option value="RATING_LOW">По возрастанию</option>
-        </select>
-        <select onChange={handleSelectChange}>
-          <option value="">-- Цена --</option>
-          <option value="PRICE_LOW">По возрастанию</option>
-          <option value="PRICE_HIGH">По убыванию</option>
-        </select>
+        <Dropdown 
+          options={ratingOptions}
+          selectedInit={'Рейтинг'}
+        />
+        <Dropdown 
+          options={priceOptions}
+          selectedInit={'Цена'}
+        />
       </div>
       <ul className="hotel-cards">
         { 
