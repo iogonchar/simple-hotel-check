@@ -16,8 +16,13 @@
   background: url('../../images/hotel.svg');
 }
 
-.hotel-card__info {
-  margin-right: auto;
+.hotel-card__info-wrapper {
+  flex-grow: 1;
+}
+
+.hotel-card__info-top {
+  display: flex;
+  justify-content: space-between;
 }
 
 .hotel-card__title {
@@ -27,11 +32,33 @@
   margin: 0;
 }
 
+.hotel-card__favourites-icon {
+  width: 21px;
+  height: 18px;
+  margin-left: 25px;
+  border: none;
+  cursor: pointer;
+}
+
+.hotel-card__favourites-icon--add {
+  background: url('../../images/favourites-not-added.svg');
+}
+
+.hotel-card__favourites-icon--remove {
+  background: url('../../images/favourites-added.svg');
+}
+
 .hotel-card__date {
+  margin: 0 0 5px 0;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.57;
   color: #878787;
+}
+
+.hotel-card__info-bottom {
+  display: flex;
+  justify-content: space-between;
 }
 
 .hotel-card__stars {
@@ -62,32 +89,6 @@
 
 .hotel-card__5stars {
   background: url('../../images/hotel5stars.svg');
-}
-
-.hotel-card__additional {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.hotel-card__add-to-favourites {
-  width: 21px;
-  height: 18px;
-  background: url('../../images/favourites-not-added.svg');
-  align-self: flex-end;
-  margin: 0 8px 22px 0;
-  border: none;
-  cursor: pointer;
-}
-
-.hotel-card__delete-from-favourites {
-  width: 21px;
-  height: 18px;
-  background: url('../../images/favourites-added.svg');
-  align-self: flex-end;
-  margin: 0 8px 22px 0;
-  border: none;
-  cursor: pointer;
 }
 
 .hotel-card__price {

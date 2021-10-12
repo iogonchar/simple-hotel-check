@@ -24,19 +24,26 @@ const Card = ({ hotel, checkInDateEn, checkInDateYear, daysAmount, onAddToFavour
   return (
     <li className={ isFavourites ? "hotel-card hotel-card--favourites" : "hotel-card"}>
       { !isFavourites && <div className="hotel-card__icon"></div> }
-      <div className="hotel-card__info">
-        <h3 className="hotel-card__title">{ hotel.hotelName }</h3>
-        <span className="hotel-card__date">{ `${checkInDateEn}, ${checkInDateYear} — ${daysAmount} ${wordEnding(daysAmount, ['день', 'дня', 'дней'])}` }</span>
-        <div className={`hotel-card__stars hotel-card__${hotel.stars}stars`}></div>
-      </div>
-      <div className="hotel-card__additional">
-        <button className={isAddedToFavourites ? "hotel-card__delete-from-favourites" : "hotel-card__add-to-favourites"} onClick={handleAddToFavouritesClick}></button>
-        <div className="hotel-card__price">
-          <span className="hotel-card__price-text">Price:</span>
-          <span className="hotel-card__price-value">
-            { new Intl.NumberFormat('ru-RU', {style: 'currency', currency: 'RUB', maximumFractionDigits: 0}).format(hotel.priceFrom) }
-          </span>
+      <div className="hotel-card__info-wrapper">
+        <div className="hotel-card__info-top">
+          <h3 className="hotel-card__title">{hotel.hotelName}</h3>
+          <button 
+            className={isAddedToFavourites ? "hotel-card__favourites-icon hotel-card__favourites-icon--remove" : "hotel-card__favourites-icon hotel-card__favourites-icon--add"} 
+            onClick={handleAddToFavouritesClick}
+          ></button>
+        </div>
+        <p className="hotel-card__date">
+          { `${checkInDateEn}, ${checkInDateYear} — ${daysAmount} ${wordEnding(daysAmount, ['день', 'дня', 'дней'])}` }
+        </p>
+        <div className="hotel-card__info-bottom">
+          <div className={`hotel-card__stars hotel-card__${hotel.stars}stars`}></div>
+          <div className="hotel-card__price">
+            <span className="hotel-card__price-text">Price:</span>
+            <span className="hotel-card__price-value">
+              { new Intl.NumberFormat('ru-RU', {style: 'currency', currency: 'RUB', maximumFractionDigits: 0}).format(hotel.priceFrom) }
+            </span>
           </div>
+        </div>
       </div>
     </li>
   );
