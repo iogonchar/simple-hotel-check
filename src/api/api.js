@@ -1,5 +1,5 @@
 export const getHotels = (location, checkInDate, checkOutDate) => {
-  return fetch(`http://engine.hotellook.com/api/v2/cache.json?location=${location}&currency=rub&checkIn=${checkInDate}&checkOut=${checkOutDate}&limit=10`, {
+  return fetch(`http://engine.hotellook.com/api/v2/cache.json?location=${location}&currency=rub&checkIn=${checkInDate}&checkOut=${checkOutDate}&limit=50`, {
     method: 'GET',
   })
   .then(res => {

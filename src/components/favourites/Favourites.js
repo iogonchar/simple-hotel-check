@@ -39,7 +39,7 @@ const Favourites = () => {
           selectedInit={'Цена'}
         />
       </div>
-      <ul className="hotel-cards">
+      <ul className="hotel-cards hotel-cards__favourites">
         { 
           store.favourites.favourites.map((hotel) => (
             <Card 

@@ -30,12 +30,18 @@
   font-size: 17px;
   line-height: 1.29;
   margin: 0;
+  max-width: 400px;
+}
+
+.hotel-card__title--favourites {
+  max-width: 240px;
 }
 
 .hotel-card__favourites-icon {
   width: 21px;
   height: 18px;
-  margin-left: 25px;
+  margin: 0 2px 0 25px;
+  /* margin-left: 25px; */
   border: none;
   cursor: pointer;
 }

@@ -26,7 +26,7 @@ const Card = ({ hotel, checkInDateEn, checkInDateYear, daysAmount, onAddToFavour
       { !isFavourites && <div className="hotel-card__icon"></div> }
       <div className="hotel-card__info-wrapper">
         <div className="hotel-card__info-top">
-          <h3 className="hotel-card__title">{hotel.hotelName}</h3>
+          <h3 className={ isFavourites ? "hotel-card__title hotel-card__title--favourites" : "hotel-card__title"}>{hotel.hotelName}</h3>
           <button 
             className={isAddedToFavourites ? "hotel-card__favourites-icon hotel-card__favourites-icon--remove" : "hotel-card__favourites-icon hotel-card__favourites-icon--add"} 
             onClick={handleAddToFavouritesClick}

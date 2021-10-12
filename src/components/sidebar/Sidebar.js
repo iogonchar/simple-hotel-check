@@ -7,7 +7,7 @@ import './Sidebar.css'
 
 const Sidebar = () => {
   return ( 
-    <aside>
+    <aside className="aside">
       <SearchForm />
       <Favourites />
     </aside>
