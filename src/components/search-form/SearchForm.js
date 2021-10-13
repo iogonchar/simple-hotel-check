@@ -63,6 +63,7 @@ const SearchForm = () => {
         />
         <span className={ errors.days ? 'form__error' : 'form__error form__error--hidden' }>
           {errors.days?.type === 'required' && "Поле должно быть заполнено"}
+          {errors.days?.type === 'min' && "Введены некорректные данные"}
         </span>
       </label>
     </Form>

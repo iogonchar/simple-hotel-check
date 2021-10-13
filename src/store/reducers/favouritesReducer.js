@@ -1,3 +1,13 @@
+import { 
+  ADD_TO_FAVOURITES_SUCCESS, 
+  REMOVE_FROM_FAVOURITES_SUCCESS,
+  SORT_FAVOURITES_SUCCESS,
+  RATING_HIGH,
+  RATING_LOW,
+  PRICE_HIGH,
+  PRICE_LOW
+} from "../types";
+
 const initialState = {
   sortMethod: null,
   favourites: []
@@ -5,8 +15,8 @@ const initialState = {
 
 export const favouritesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_TO_FAVOURITES_SUCCESS': {
-      if (state.sortMethod === 'RATING_HIGH') {
+    case ADD_TO_FAVOURITES_SUCCESS: {
+      if (state.sortMethod === RATING_HIGH) {
         const updatedFavourites = [ ...state.favourites, action.payload.hotel ];
         return {
           ...state,
@@ -14,7 +24,7 @@ export const favouritesReducer = (state = initialState, action) => {
         }
       }
 
-      if (state.sortMethod === 'RATING_LOW') {
+      if (state.sortMethod === RATING_LOW) {
         const updatedFavourites = [ ...state.favourites, action.payload.hotel ];
         return {
           ...state,
@@ -22,7 +32,7 @@ export const favouritesReducer = (state = initialState, action) => {
         }
       }
 
-      if (state.sortMethod === 'PRICE_HIGH') {
+      if (state.sortMethod === PRICE_HIGH) {
         const updatedFavourites = [ ...state.favourites, action.payload.hotel ];
         return {
           ...state,
@@ -30,7 +40,7 @@ export const favouritesReducer = (state = initialState, action) => {
         }
       }
 
-      if (state.sortMethod === 'PRICE_LOW') {
+      if (state.sortMethod === PRICE_LOW) {
         const updatedFavourites = [ ...state.favourites, action.payload.hotel ];
         return {
           ...state,
@@ -46,16 +56,13 @@ export const favouritesReducer = (state = initialState, action) => {
         ]
       }
     }
-    case 'REMOVE_FROM_FAVOURITES_SUCCESS': {
+    case REMOVE_FROM_FAVOURITES_SUCCESS: {
       return {
         favourites: state.favourites.filter((item) => item.hotelId !== action.payload.hotel.hotelId)
       }
     }
-    case 'SORT_FAVOURITES_SUCCESS': {
-      console.log('SORT STATE:', state)
-      console.log('SORT ACTION:', action)
-      // Рейтинг от большего к меньшему
-      if (action.payload.sortMethod === 'RATING_HIGH') {
+    case SORT_FAVOURITES_SUCCESS: {
+      if (action.payload.sortMethod === RATING_HIGH) {
         return {
           ...state,
           sortMethod: action.payload.sortMethod,
@@ -64,7 +71,7 @@ export const favouritesReducer = (state = initialState, action) => {
       }
 
       // Рейтинг от меньшего к большему
-      if (action.payload.sortMethod === 'RATING_LOW') {
+      if (action.payload.sortMethod === RATING_LOW) {
         return {
           ...state,
           sortMethod: action.payload.sortMethod,
@@ -73,7 +80,7 @@ export const favouritesReducer = (state = initialState, action) => {
       }
 
       // Цена от большей к меньшей
-      if (action.payload.sortMethod === 'PRICE_HIGH') {
+      if (action.payload.sortMethod === PRICE_HIGH) {
         return {
           ...state,
           sortMethod: action.payload.sortMethod,
@@ -82,7 +89,7 @@ export const favouritesReducer = (state = initialState, action) => {
       }
 
       // Цена от меньшй к большей
-      if (action.payload.sortMethod === 'PRICE_LOW') {
+      if (action.payload.sortMethod === PRICE_LOW) {
         return {
           ...state,
           sortMethod: action.payload.sortMethod,

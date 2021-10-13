@@ -1,5 +1,6 @@
 import { HOTELS_REQUEST } from "../types";
 
+// saga actions
 export const hotelsRequest = (location, checkInDate, checkOutDate, daysAmount) => ({
   type: HOTELS_REQUEST,
   location,
