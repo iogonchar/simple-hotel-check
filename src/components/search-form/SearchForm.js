@@ -1,92 +1,70 @@
-import React, { useRef } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 
 import Form from '../form/Form'
 
-import { useFormValidation } from '../../hooks/useFormValidation';
-
 import { hotelsRequest } from '../../store/actions/hotels';
 
 const SearchForm = () => {
-  const locationRef = useRef('');
-  const dateRef = useRef('');
-  const dayRef = useRef('');
-
+  const { register, handleSubmit, getValues, formState: { errors } } = useForm();
   const dispatch = useDispatch();
 
-  const {
-    values,
-    errors,
-    isValid,
-    handleChange
-  } = useFormValidation({});
+  const onSubmit = () => {
+    const location = getValues('location')
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    console.log('Отправляю диспатч на поиск');
-
-    const location = locationRef.current.value;
-
-    const checkInDate = dateRef.current.value;
+    const checkInDate = getValues('date')
     const date = new Date(checkInDate);
-    const daysAmount = dayRef.current.value;
+    const daysAmount = getValues('days');
     const checkOutDate = new Date(date.setDate(date.getDate() + Number(daysAmount))).toISOString().slice(0, 10);
 
     dispatch(hotelsRequest(location, checkInDate, checkOutDate, daysAmount));
-  }
+  };
 
   return (
     <Form
       buttonText="Найти"
-      onSubmit={handleSubmit}
-      isDisabled={!isValid}
+      onSubmit={handleSubmit(onSubmit)}
     >
       <label className="form__field" htmlFor="location-input">
-        <span className="form__label">Локация</span>
+        <span className={ errors.location ? 'form__label form__label--error' : 'form__label' }>Локация</span>
         <input 
-          ref={locationRef}
+          className={ errors.location ? 'form__input form__input--error' : 'form__input' }
+          id="location-input"
           type="text"
-          className="form__input"
-          id="location-input" 
-          name="location"
-          required
-          onChange={handleChange}
-          value={values.location || ''}
+          {...register("location", { required: true })} 
         />
-        <span className={ errors.location ? 'form__error' : 'form__error form__error--hidden' }>{ errors.location }</span>
+        <span className={ errors.location ? 'form__error' : 'form__error form__error--hidden' }>
+          {errors.location?.type === 'required' && "Поле должно быть заполнено"}
+        </span>
       </label>
 
       <label className="form__field" htmlFor="date-input">
-        <span className="form__label">Дата заселения</span>
+        <span className={ errors.date ? 'form__label form__label--error' : 'form__label' }>Дата заселения</span>
         <input 
-          ref={dateRef}
+          className={ errors.date ? 'form__input form__input--error' : 'form__input' }
+          id="date-input"
           type="date"
-          className="form__input"
-          id="date-input" 
-          name="date"
-          required
           min={new Date().toISOString().slice(0, 10)}
-          onChange={handleChange}
-          value={values.date || ''}
+          {...register("date", { required: true })} 
         />
-        <span className={ errors.date ? 'form__error' : 'form__error form__error--hidden' }>{ errors.date }</span>
+        <span className={ errors.date ? 'form__error' : 'form__error form__error--hidden' }>
+          {errors.date?.type === 'required' && "Выберите дату"}
+        </span>
       </label>
 
       <label className="form__field" htmlFor="days-input">
-        <span className="form__label">Количество дней</span>
+        <span className={ errors.days ? 'form__label form__label--error' : 'form__label' }>Количество дней</span>
         <input 
-          ref={dayRef}
+          className={ errors.days ? 'form__input form__input--error' : 'form__input' }
+          id="days-input"
           type="number"
-          className="form__input"
-          id="days-input" 
-          name="days"
-          required
           min="1"
-          onChange={handleChange}
-          value={values.days || ''}
+          {...register("days", { required: true, min: 1 })} 
         />
-        <span className={ errors.days ? 'form__error' : 'form__error form__error--hidden' }>{ errors.days }</span>
+        <span className={ errors.days ? 'form__error' : 'form__error form__error--hidden' }>
+          {errors.days?.type === 'required' && "Поле должно быть заполнено"}
+        </span>
       </label>
     </Form>
   );

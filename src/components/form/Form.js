@@ -7,7 +7,7 @@ const Form = ({ title, buttonText, onSubmit, isDisabled, children }) => {
   return (
     <div className="form-container">
       { title && <h2 className="form-container__title">{ title }</h2> }
-      <form className="form" onSubmit={onSubmit} noValidate>
+      <form className="form" onSubmit={onSubmit} >
         { children }
         <button className="form__submit-btn" disabled={isDisabled}>{ buttonText }</button>
       </form>
