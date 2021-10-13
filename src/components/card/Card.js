@@ -1,24 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+import { wordEnding } from '../../utils/utils';
+
 import './Card.css'
 
-const Card = ({ hotel, checkInDateEn, checkInDateYear, daysAmount, onAddToFavourites, isFavourites }) => {
-  const store = useSelector((store) => store);
+const Card = ({ hotel, checkInDateEn, checkInDateYear, daysAmount, onFavouritesClick, isFavourites }) => {
+  const { favourites } = useSelector((store) => store.favourites);
 
-  const wordEnding = (count, endings) => {
-    const countLastNum = count % 10;
-
-    if (count > 10 && count < 20) { return endings[2]; }
-    if (countLastNum > 1 && countLastNum < 5) { return endings[1]; }
-    if (countLastNum === 1) { return endings[0]; }
-
-    return endings[2]
-  }
-
-  const isAddedToFavourites = store.favourites.favourites.some(item => item.hotelId === hotel.hotelId);
+  const isAddedToFavourites = favourites.some(item => item.hotelId === hotel.hotelId);
   const handleAddToFavouritesClick = () => {
-    onAddToFavourites(hotel, isAddedToFavourites);
+    onFavouritesClick(hotel, isAddedToFavourites);
   }
 
   return (

@@ -11,7 +11,7 @@ import { authUser } from '../store/actions/auth';
 import './App.css';
 
 const App = () => {
-  const store = useSelector((store) => store);
+  const { isLoggedIn } = useSelector((store) => store.login);
   const dispatch = useDispatch();
 
   // проверяем наличие токена
@@ -30,7 +30,7 @@ const App = () => {
 
         <Route path="/">
           {
-            store.login.isLoggedIn 
+            isLoggedIn 
               ? <>
                   <Header />
                   <Main />

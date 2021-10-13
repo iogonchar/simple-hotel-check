@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 
-import Form from '../form/Form'
+import Form from '../form/Form';
 
 import { authRequest } from '../../store/actions/auth';
 

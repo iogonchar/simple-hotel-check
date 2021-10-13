@@ -1,7 +1,7 @@
 import React from 'react';
-import Favourites from '../favourites/Favourites';
 
 import SearchForm from '../search-form/SearchForm';
+import Favourites from '../favourites/Favourites';
 
 import './Sidebar.css'
 

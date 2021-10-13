@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 
-import Form from '../form/Form'
+import Form from '../form/Form';
 
 import { hotelsRequest } from '../../store/actions/hotels';
 
@@ -12,7 +12,6 @@ const SearchForm = () => {
 
   const onSubmit = () => {
     const location = getValues('location')
-
     const checkInDate = getValues('date')
     const date = new Date(checkInDate);
     const daysAmount = getValues('days');

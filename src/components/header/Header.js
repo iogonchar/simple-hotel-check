@@ -11,8 +11,6 @@ const Header = () => {
   const handleLogout = (e) => {
     e.preventDefault();
 
-    console.log('Пытаюсь выйти');
-
     dispatch(logout());
   }
 

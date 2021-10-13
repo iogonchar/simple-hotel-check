@@ -7,14 +7,6 @@ import store from './store';
 import history from './history';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
-// import { authUser } from './store/actions/auth';
-
-// ПОПРОБОВАТЬ ПЕРЕНЕСТИ ДИСПАТЧ В АПП
-// ВЕРНУТЬ useDispatch, убрать mapState
-// if (localStorage.getItem('token')) {
-//   console.log('index')
-//   store.dispatch(authUser());
-// }
 
 ReactDOM.render(
   <React.StrictMode>
