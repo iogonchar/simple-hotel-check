@@ -1,0 +1,22 @@
+.carousel {
+  margin-bottom: 28px;
+}
+
+.carousel__item {
+  margin-right: 12px;
+}
+
+.carousel__img {
+  width: 164px;
+  height: 149px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+.dn {
+  display: none;
+}
+
+.slick-slide div:focus {
+  outline: none;
+}

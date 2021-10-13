@@ -5,6 +5,7 @@ import { hotelsRequest } from '../../store/actions/hotels';
 import { addToFavourites, removeFromFavourites } from '../../store/actions/favourites';
 
 import Card from '../card/Card';
+import Carousel from '../carousel/Carousel';
 
 import './SearchResults.css'
 import arrowImg from '../../images/arrow.svg';
@@ -67,7 +68,8 @@ const SearchResults = () => {
         <h2 className="search-results__title">Отели<img src={arrowImg} alt="-" className="search-results__title-img" />{ store.hotels.hotelLocation }</h2>
         <p className="search-results__date">{ `${checkInDateRu} ${checkInDate.getFullYear()}` }</p>
       </div>
-      <span className="search-results__slider">Слайдер</span>
+      {/* <span className="search-results__slider">Слайдер</span> */}
+      <Carousel />
       <p className="search-results__favourites">
         Добавлено в избранное: 
         <span className="search-results__favourites-number"> {store.favourites.favourites.length} </span>
