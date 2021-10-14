@@ -4,6 +4,7 @@ export const getHotels = (location, checkInDate, checkOutDate) => {
     method: 'GET',
   })
   .then(res => {
+    console.log(res)
     if (res.ok) {
       return res.json();
     }
