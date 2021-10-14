@@ -6,7 +6,7 @@ import Login from './login/Login';
 import Header from './header/Header';
 import Main from './main/Main';
 
-import { authUser } from '../store/actions/auth';
+import { authRequest } from '../store/actions/auth';
 
 import './App.css';
 
@@ -17,7 +17,7 @@ const App = () => {
   // проверяем наличие токена
   useEffect(() => {
     if (localStorage.getItem('token')) {
-      dispatch(authUser());
+      dispatch(authRequest());
     }
   }, [dispatch]);
 

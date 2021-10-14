@@ -1,31 +1,36 @@
 import { 
-  LOGIN, 
-  LOGIN_REQUEST, 
-  LOGIN_SUCCESS, 
-  LOGOUT, 
-  LOGOUT_SUCCESS 
+  LOGIN_REQUEST,
+  AUTH_REQUEST, 
+  LOGIN_ACTION, 
+  LOGOUT_REQUEST, 
+  LOGOUT_ACTION 
 } from "../types";
 
-// saga actions
-// При входе через форму
-export const authRequest = () => ({
+// --- START Login ---
+// dispatch from LoginForm, on login user
+export const loginRequest = () => ({
   type: LOGIN_REQUEST
 });
 
-// Если есть токен
-export const authUser = () => ({
-  type: LOGIN
+// dispatch from App, on auth user if localstorage contains token
+export const authRequest = () => ({
+  type: AUTH_REQUEST
 });
 
-export const logout = () => ({
-  type: LOGOUT
+// put from loginSaga
+export const loginAction = () => ({
+  type: LOGIN_ACTION
+});
+// --- END Login ---
+
+// --- START Logout ---
+// dispatch from Header component, on logout user
+export const logoutRequest = () => ({
+  type: LOGOUT_REQUEST
 });
 
-// redux actions
-export const userLoggedIn = () => ({
-  type: LOGIN_SUCCESS
+// put from logoutSaga
+export const logoutAction = () => ({
+  type: LOGOUT_ACTION
 });
-
-export const userLogout = () => ({
-  type: LOGOUT_SUCCESS
-});
+// --- END Logout ---

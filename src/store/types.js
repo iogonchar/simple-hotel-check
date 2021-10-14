@@ -1,7 +1,12 @@
-// saga types
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
-export const LOGIN = 'LOGIN';
-export const LOGOUT = 'LOGOUT';
+export const AUTH_REQUEST = 'AUTH_REQUEST';
+export const LOGIN_ACTION = 'LOGIN_ACTION';
+
+export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
+export const LOGOUT_ACTION = 'LOGOUT_ACTION';
+
+
+// saga types
 export const HOTELS_REQUEST = 'HOTELS_REQUEST';
 export const ADD_TO_FAVOURITES = 'ADD_TO_FAVOURITES';
 export const REMOVE_FROM_FAVOURITES = 'REMOVE_FROM_FAVOURITES';
@@ -9,7 +14,6 @@ export const SORT_FAVOURITES = 'SORT_FAVOURITES';
 
 // redux types
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const HOTELS_SUCCESS = 'HOTELS_SUCCESS';
 export const ADD_TO_FAVOURITES_SUCCESS = 'ADD_TO_FAVOURITES_SUCCESS';
 export const REMOVE_FROM_FAVOURITES_SUCCESS = 'REMOVE_FROM_FAVOURITES_SUCCESS';

@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import Form from '../form/Form';
 
-import { authRequest } from '../../store/actions/auth';
+import { loginRequest } from '../../store/actions/auth';
 
 import './LoginForm.css';
 
@@ -13,7 +13,7 @@ const LoginForm = () => {
   const dispatch = useDispatch();
 
   const onSubmit = () => {
-    dispatch(authRequest());
+    dispatch(loginRequest());
   };
 
   return (
