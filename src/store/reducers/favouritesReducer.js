@@ -1,6 +1,6 @@
 import { 
-  ADD_TO_FAVOURITES_SUCCESS, 
-  REMOVE_FROM_FAVOURITES_SUCCESS,
+  ADD_TO_FAVOURITES_ACTION,
+  REMOVE_FROM_FAVOURITES_ACTION,
   SORT_FAVOURITES_SUCCESS,
   RATING_HIGH,
   RATING_LOW,
@@ -15,7 +15,7 @@ const initialState = {
 
 export const favouritesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_TO_FAVOURITES_SUCCESS: {
+    case ADD_TO_FAVOURITES_ACTION: {
       if (state.sortMethod === RATING_HIGH) {
         const updatedFavourites = [ ...state.favourites, action.payload.hotel ];
         return {
@@ -56,7 +56,7 @@ export const favouritesReducer = (state = initialState, action) => {
         ]
       }
     }
-    case REMOVE_FROM_FAVOURITES_SUCCESS: {
+    case REMOVE_FROM_FAVOURITES_ACTION: {
       return {
         favourites: state.favourites.filter((item) => item.hotelId !== action.payload.hotel.hotelId)
       }

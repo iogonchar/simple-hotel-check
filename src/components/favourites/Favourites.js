@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { removeFromFavourites } from '../../store/actions/favourites';
+import { removeFromFavouritesRequest } from '../../store/actions/favourites';
 
 import Card from '../card/Card';
 import Dropdown from '../dropdown/Dropdown';
@@ -23,7 +23,7 @@ const Favourites = () => {
   ]
 
   const handleRemoveFromFavourites = (hotel) => {
-    dispatch(removeFromFavourites(hotel));
+    dispatch(removeFromFavouritesRequest(hotel));
   }
   
   return (

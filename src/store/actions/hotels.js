@@ -1,10 +1,15 @@
-import { HOTELS_REQUEST } from "../types";
+import { HOTELS_REQUEST, HOTELS_ACTION } from "../types";
 
-// saga actions
-export const hotelsRequest = (location, checkInDate, checkOutDate, daysAmount) => ({
+// dispatch from SearchForm || SearchResults
+export const hotelsRequest = (params) => ({
   type: HOTELS_REQUEST,
-  location,
-  checkInDate,
-  checkOutDate,
-  daysAmount
+  ...params
+});
+
+// put from hotelsSaga
+export const hotelsAction = (params) => ({
+  type: HOTELS_ACTION,
+  payload: {
+    ...params
+  }
 });

@@ -1,27 +1,18 @@
 import { put } from 'redux-saga/effects';
 
 import { 
-  ADD_TO_FAVOURITES_SUCCESS,
-  REMOVE_FROM_FAVOURITES_SUCCESS,
   SORT_FAVOURITES_SUCCESS
 } from '../types';
 
+import { addToFavouritesAction, removeFromFavouritesAction } from '../actions/favourites';
+
+
 export function* addToFavouritesSaga(action) {
-  yield put({
-    type: ADD_TO_FAVOURITES_SUCCESS,
-    payload: {
-      hotel: action.hotel
-    }
-  })
+  yield put(addToFavouritesAction({ hotel: action.hotel }))
 }
 
 export function* removeFromFavouritesSaga(action) {
-  yield put({ 
-    type: REMOVE_FROM_FAVOURITES_SUCCESS,
-    payload: {
-      hotel: action.hotel
-    }
-  })
+  yield put(removeFromFavouritesAction({ hotel: action.hotel }))
 }
 
 export function* sortFavouritesSaga(action) {

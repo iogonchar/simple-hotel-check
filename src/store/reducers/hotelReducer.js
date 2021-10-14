@@ -1,4 +1,4 @@
-import { HOTELS_SUCCESS } from "../types";
+import { HOTELS_ACTION } from "../types";
 
 const initialState = {
   checkInDate: null,
@@ -9,7 +9,7 @@ const initialState = {
 
 export const hotelsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case HOTELS_SUCCESS: {
+    case HOTELS_ACTION: {
       return {
         ...state,
         checkInDate: action.payload.checkInDate,

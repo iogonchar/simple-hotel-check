@@ -17,7 +17,7 @@ const SearchForm = () => {
     const daysAmount = getValues('days');
     const checkOutDate = new Date(date.setDate(date.getDate() + Number(daysAmount))).toISOString().slice(0, 10);
 
-    dispatch(hotelsRequest(location, checkInDate, checkOutDate, daysAmount));
+    dispatch(hotelsRequest({ location, checkInDate, checkOutDate, daysAmount }));
   };
 
   return (

@@ -5,7 +5,7 @@ import Card from '../card/Card';
 import Carousel from '../carousel/Carousel';
 
 import { hotelsRequest } from '../../store/actions/hotels';
-import { addToFavourites, removeFromFavourites } from '../../store/actions/favourites';
+import { addToFavouritesRequest, removeFromFavouritesRequest } from '../../store/actions/favourites';
 import { wordEnding } from '../../utils/utils';
 
 import './SearchResults.css'
@@ -32,7 +32,7 @@ const SearchResults = () => {
     const checkOutDate = new Date(today.setDate(today.getDate() + 1)).toISOString().slice(0, 10);
     const location = 'Москва';
 
-    dispatch(hotelsRequest(location, checkInDate, checkOutDate, 1));
+    dispatch(hotelsRequest({ location, checkInDate, checkOutDate, daysAmount: 1 }));
   }, [dispatch]);
 
   const handleFavouritesClick = (hotel, isAddedToFavourites) => {
@@ -41,9 +41,9 @@ const SearchResults = () => {
       hotel.checkInDateYear = currentCheckInDate.getFullYear();
       hotel.daysAmount = daysAmount;
 
-      dispatch(addToFavourites(hotel));
+      dispatch(addToFavouritesRequest(hotel));
     } else {
-      dispatch(removeFromFavourites(hotel));
+      dispatch(removeFromFavouritesRequest(hotel));
     }
   }
 
